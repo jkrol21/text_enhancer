@@ -32,17 +32,17 @@ def image_from_prediction(image_array: np.ndarray) -> PIL.Image:
 
 
 def generate_prediction(model, input: np.ndarray) -> PIL.Image:
-    prediction = model.predict(input)
-    prediction = image_from_prediction(prediction)
+    prediction = model.predict(np.expand_dims(input, axis=0))[0]
+    prediction_image = image_from_prediction(prediction)
 
-    return predictions
+    return prediction_image
 
 
 def enhance_image(image: PIL.Image, model, increase_size=True) -> PIL.Image:
     if increase_size:
-        image = increase_size_image(image)
+        image = increase_image_size(image)
 
-    X_image = np.array([preprocess_image(image)])
+    X_image = preprocess_image(image)
     enhanced_image = generate_prediction(model, X_image)
 
     return enhanced_image

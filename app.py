@@ -10,6 +10,7 @@ from keras.models import load_model
 from PIL import Image
 from streamlit_image_comparison import image_comparison
 from tensorflow import keras
+from utils import enhance_image
 
 
 @st.cache_resource
@@ -37,7 +38,7 @@ def load_cached_model():
 
 
 st.set_page_config(
-    page_title="Text Enhancer",
+    page_title="Free Formula Image Enhancer",
     page_icon=":memo:",
     layout="wide",
 )
