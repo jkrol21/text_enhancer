@@ -43,6 +43,14 @@ st.set_page_config(
     layout="wide",
 )
 
+st.markdown(
+    """
+<meta name="google-site-verification" content="e5mfyk2a-EwQDloepFK9jxdmJ1t9AqkMaLG80MhKWVM" />
+""",
+    unsafe_allow_html=True,
+)
+
+
 model = load_cached_model()
 
 st.markdown(
